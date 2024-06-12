@@ -1,10 +1,10 @@
 :root {
   /* Color */
-  --primary-color: white;
+  --primary-color: black;
   --secondary-color: white;
-  --accent-color: white;
-  --text-color: white;
-  --background-color: white;
+  --accent-color: green;
+  --text-color: blue;
+  --background-color: red;
 
   /* Typography */
   --primary-font: 'Inter', sans-serif;

@@ -26,8 +26,6 @@ export const OrderProvider = ({ children }) => {
     calculateCount();
   }, [order]);
 
-  /* Uso de un efecto cuando un elemento ha sido actualizado Lo que digo aca es que se actualice en base a "order". Alguien hizo set order? ejecutamos nuevamente la función una vez que el elemento se pinto */
-
   const [total, setTotal] = useState(0);
 
   function calculateTotal() {

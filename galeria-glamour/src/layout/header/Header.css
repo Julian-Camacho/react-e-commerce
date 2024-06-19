@@ -17,7 +17,11 @@
     justify-content: center;
     align-items: center;
     padding: 5px 0;
-    
+    img {
+        width: 40px;
+        height: 40px;
+    }
+   
 }
 
 .header-img{
@@ -110,6 +114,14 @@ ul.nav-list{
     height: 60px;
 }
 
+.user-image {
+    border-radius: 50%;
+}
+
+.user.name {
+    text-decoration: none;
+}
+
 .cart-container{
     display: flex;
     align-items: center;
@@ -145,7 +157,7 @@ body:has(.check-menu:checked){
 .check-menu:checked~nav.nav-menu{
     height: 100vh;
     position: fixed;
-    background-color: green;
+    background-color: var(--primary-color);
 }
 
 .check-menu:checked ~ label.burger-menu .burger-line{

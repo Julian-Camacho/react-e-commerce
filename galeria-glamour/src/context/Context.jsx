@@ -47,7 +47,7 @@ export const OrderProvider = ({ children }) => {
 
   //Function Agregar producto
 
-  function addOrderItem(producto) {
+  function addProductToOrder(producto) {
     // Buscar en la orden si existe el producto y si existe añadimos 1 a quantity. Si no existe lo añadimos al array
 
     const product = order.find((prod) => prod.id === producto.id);
@@ -136,7 +136,7 @@ export const OrderProvider = ({ children }) => {
     <OrderContext.Provider
       value={{
         order,
-        addOrderItem,
+        addProductToOrder,
         total,
         handleChanqeQuantity,
         removeItem,

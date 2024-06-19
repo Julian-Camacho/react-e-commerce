@@ -17,27 +17,18 @@ function App() {
   return (
     <>
       <Routes>          
-          <Route path='/login' element={<Login/>} />
-          <Route path="/" element={<Layout/>}>
-            <Route index element={<Home/>}/> {/* Index es la ruta por defecto */}
-            <Route path='contact' element={<Contact/>} />
-            <Route path='about-us' element={<AboutUs/>} />
-            <Route path='register' element={<Register/>} />
-            <Route path='product-detail/:id' element={<ProductDetail/>}/>
-            <Route path='admin-product' element={
-              <AdminGuard>
-                  <AdminProduct />
-              </AdminGuard>} 
-            />
-            <Route path='admin-users' element={
-              <AdminGuard>
-                  <AdminUsers/>
-              </AdminGuard>
-            }
-            />
-            <Route path='*' element={<NotFound/>} />
-          </Route>
-        </Routes>
+        <Route path='/login' element={<Login/>} />
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<Home/>}/> {/* Index es la ruta por defecto */}
+          <Route path='contact' element={<Contact/>} />
+          <Route path='about-us' element={<AboutUs/>} />
+          <Route path='register' element={<Register/>} />
+          <Route path='product-detail/:id' element={<ProductDetail/>}/>
+          <Route path='admin-product' element={<AdminGuard> <AdminProduct/> </AdminGuard>} />
+          <Route path='admin-users' element={<AdminGuard> <AdminUsers/> </AdminGuard>} />
+          <Route path='*' element={<NotFound/>} />
+        </Route>
+      </Routes>
     </>
   )
 }

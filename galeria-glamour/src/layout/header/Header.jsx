@@ -1,13 +1,16 @@
 import "./Header.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useOrder } from "../../context/Context";
+import Logo from "../../assets/Fondos/logo.png";
+
 
 export default function Header() {
     
   const burgerMenu = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -16,10 +19,20 @@ export default function Header() {
         burgerMenu.current.checked = false;
       }
     };
+
+    const handleRouteChange = () => {
+      burgerMenu.current.checked = true;
+      burgerMenu.current.checked = false;
+    }
+
     // Event listener para el resize de la ventana
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
-  }, []);
+
+    // Deschequear el checkbox para el cambio de ruta
+    handleRouteChange();
+
+  }, [location]);
 
   const {toggleSidebarOrder, count} = useOrder();
 
@@ -34,9 +47,11 @@ export default function Header() {
       <label htmlFor="check-menu" className="burger-menu">
         <div className="burger-line"></div>
       </label>
+      <NavLink to='/'>
       <div className="header-logo">
-        <img src="#" alt="Logo" />
+        <img src= {Logo} alt="Logo" />
       </div>
+      </NavLink>
       <nav className="nav-menu">
         <ul className="nav-list">
           <li className="nav-item">
@@ -47,11 +62,6 @@ export default function Header() {
           <li className="nav-item">
             <NavLink to="/about-us" className="nav-link">
               <span>Sobre Nosotros</span>
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink to="/products" className="nav-link">
-              <span>Productos</span>
             </NavLink>
           </li>
           <li className="nav-item">
@@ -82,10 +92,12 @@ export default function Header() {
         </ul>
       </nav>
       <div className="user-info">
-        <div className="user-data">
-          <div className="user-name">Julián Camacho</div>
-          <img className="user-image" src="" alt="" />
-        </div>
+        <NavLink to='/register' className="nav-link">
+          <div className="user-data">
+            <div className="user-name">Julián Camacho</div>
+            <img className="user-image" src="https://imgur.com/OyTz80z.jpg" alt="perfil" />
+          </div>
+        </NavLink>
         <div
           className={`user-cart-container ${count < 1 ? "" : "show-circle"}`}
           data-count={count}
